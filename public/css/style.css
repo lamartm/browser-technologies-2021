@@ -1,0 +1,86 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+header {
+    padding-top: 5em;
+    text-align: center;
+}
+header h1 {
+    margin-bottom: 0;
+}
+header h2 {
+    color: #abafaf;
+    margin-top: .3em;
+}
+/* .inlog-body {
+    text-align: center;
+} */
+main form fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main form fieldset label {
+    margin-bottom: .5em;
+}
+main form fieldset input {
+    margin-bottom: 1em;
+}
+fieldset {
+    padding-bottom: 2em;
+    border: none;
+}
+fieldset legend {
+    padding-bottom: 0.7em;
+    font-weight: bold;
+    font-size: 1em;
+}
+.text-sec {
+    margin-top: 0;
+}
+.form fieldset {
+    padding-bottom: 1.5em;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+.invalid {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    margin-bottom: 1em;
+    text-decoration: none;
+    background-image: linear-gradient(120deg, rgb(240, 238, 238) 0%, rgb(240, 238, 238) 50%, rgb(135, 20, 158) 50%);
+    background-size: 220%;
+    transition: all .5s;
+    color: black;
+}
+.valid {
+    font-size: 1.4rem;
+    margin-bottom: 1em;
+    text-decoration: line-through;
+    color: rgb(192, 188, 188);
+}
+
+.invalid:hover {
+    background-position: 100%;
+    color:beige;
+    transform: translateX(1em);
+}
+#inlogButton:hover, .formButton:hover{
+    background-position: 100%;
+    color:beige;
+}
+#inlogButton, .formButton {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 2.5rem;
+    text-decoration: none;
+    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, rgb(135, 20, 158) 50%);
+    background-size: 220%;
+    transition: all .5s;
+    border: none;
+    color: black;
+}

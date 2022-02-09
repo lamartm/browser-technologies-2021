@@ -1,0 +1,124 @@
+<%- include ("./partials/head.ejs") %>
+<form action="/courses/<%= data.name %>/<%= id %>" method="POST" id="<%= data.name %>"">
+    <fieldset>
+        <legend>Docenten</legend>
+        <% data.teachers.forEach(d => { %>
+        <input type="radio" id="teacher" name="teacher" value="<%= d %>" required>
+        <label for="teacher"><%= d %></label>
+        <% }) %> 
+    </fieldset>
+
+    <fieldset>
+        <legend>In welke week had je het vak?</legend>
+        <label for="start">Begin </label>
+        <input type="date" id="start" name="start" required>
+        <label for="end">Eind </label>
+        <input type="date" id="end" name="end" required>
+        
+    </fieldset>
+
+    <fieldset>
+        <legend>Beoordeeling van het vak</legend>
+        <p class="text-sec">Algemeen beoordeling</p>
+        <input type="radio" id="generalRate" name="generalRate" value="1" required>
+        <label for="generalRate">1</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="2" required>
+        <label for="generalRate">2</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="3" required>
+        <label for="generalRate">3</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="4" required>
+        <label for="generalRate">4</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="5" required>
+        <label for="generalRate">5</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="6" required>
+        <label for="generalRate">6</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="7" required>
+        <label for="generalRate">7</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="8" required>
+        <label for="generalRate">8</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="9" required>
+        <label for="generalRate">9</label>
+
+        <input type="radio" id="generalRate" name="generalRate" value="10" required>
+        <label for="generalRate">10</label>
+
+        <p>Moeilijkheid</p>
+        <input type="radio" id="difficulty" name="difficulty" value="1" required>
+        <label for="difficulty">1</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="2" required>
+        <label for="difficulty">2</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="3" required>
+        <label for="difficulty">3</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="4" required>
+        <label for="difficulty">4</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="5" required>
+        <label for="difficulty">5</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="6" required>
+        <label for="difficulty">6</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="7" required>
+        <label for="difficulty">7</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="8" required>
+        <label for="difficulty">8</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="9" required>
+        <label for="difficulty">9</label>
+
+        <input type="radio" id="difficulty" name="difficulty" value="10" required>
+        <label for="difficulty">10</label>
+
+        <p>Kwaliteit</p>
+        <input type="radio" id="quality" name="quality" value="1" required>
+        <label for="quality">1</label>
+
+        <input type="radio" id="quality" name="quality" value="2" required>
+        <label for="quality">2</label>
+
+        <input type="radio" id="quality" name="quality" value="3" required>
+        <label for="quality">3</label>
+
+        <input type="radio" id="quality" name="quality" value="4" required>
+        <label for="quality">4</label>
+
+        <input type="radio" id="quality" name="quality" value="5" required>
+        <label for="quality">5</label>
+
+        <input type="radio" id="quality" name="quality" value="6" required>
+        <label for="quality">6</label>
+
+        <input type="radio" id="quality" name="quality" value="7" required>
+        <label for="quality">7</label>
+
+        <input type="radio" id="quality" name="quality" value="8" required>
+        <label for="quality">8</label>
+
+        <input type="radio" id="quality" name="quality" value="9" required>
+        <label for="quality">9</label>
+
+        <input type="radio" id="quality" name="quality" value="10" required>
+        <label for="quality">10</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Nog een opmerking?</legend>
+        <textarea name="comment" id="comment" cols="55" rows="5"></textarea>
+    </fieldset>
+    <input type="submit" value="Submit" class="formButton">
+</form>
+
+<script src="/js/ls.js" type="module"></script>
+<%- include ("./partials/footer.ejs") %>
