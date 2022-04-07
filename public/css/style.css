@@ -35,8 +35,7 @@ main {
 }
 
 #formCourse {
-  height: initial;
-  padding: 3em 0;
+  height: 100%;
 }
 
 section div form,
@@ -204,6 +203,10 @@ ul {
 
   .section-inlog {
     padding: 0;
+  }
+
+  #formCourse {
+      height: initial;
   }
 
   #submit-form {
