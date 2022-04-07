@@ -1,7 +1,7 @@
 # Browser Technologies @cmda-minor-web 20-21
 
 ## Opdracht 2
-Ik ga hier kijken naar Kleur en Custom fonts. Hiervoor ga ik een site gebruiken die zelf gemaakt heb tijdens mijn stage: https://debuurtontdekkers.nl/
+Ik ga hier kijken naar Kleur en Custom fonts. Hiervoor ga ik een site gebruiken die ik zelf gemaakt heb tijdens mijn stage: https://debuurtontdekkers.nl/
 
 ### Custom fonts
 
