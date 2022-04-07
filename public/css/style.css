@@ -1,86 +1,228 @@
 body {
-    font-family: 'Nunito', sans-serif;
-    text-align: center;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  margin: 0;
+  height: 100%;
 }
-header {
-    padding-top: 5em;
-    text-align: center;
+
+h1 {
+  font-size: 2rem;
 }
-header h1 {
-    margin-bottom: 0;
+
+h2 {
+  font-size: 1.8rem;
 }
-header h2 {
-    color: #abafaf;
-    margin-top: .3em;
+
+input:hover {
+  cursor: pointer;
 }
-/* .inlog-body {
-    text-align: center;
-} */
+
+section {
+  background-color: #f5e8da;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+section div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+main {
+  height: 100%;
+}
+
+#formCourse {
+  height: initial;
+  padding: 3em 0;
+}
+
+section div form,
+main section article {
+  padding: 1em 0;
+  border-radius: 8px;
+  background-color: white;
+  width: fit-content;
+  margin: 0 auto;
+}
+textarea {
+  border-radius: 10px;
+  width: 30em;
+  height: 6em;
+}
+
+main section article {
+  padding: 2em 3em;
+}
+
 main form fieldset {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 main form fieldset label {
-    margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
+
 main form fieldset input {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
+
 fieldset {
-    padding-bottom: 2em;
-    border: none;
+  padding-bottom: 2em;
+  border: none;
 }
+
 fieldset legend {
-    padding-bottom: 0.7em;
-    font-weight: bold;
-    font-size: 1em;
+  width: 100%;
+  padding-bottom: 0.7em;
+  font-weight: bold;
+  font-size: 1em;
 }
-.text-sec {
-    margin-top: 0;
-}
+
 .form fieldset {
-    padding-bottom: 1.5em;
+  padding-bottom: 1.5em;
 }
 ul {
-    padding: 0;
-    list-style-type: none;
+  padding: 0;
+  list-style-type: none;
 }
 .invalid {
-    display: inline-block;
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    margin-bottom: 1em;
-    text-decoration: none;
-    background-image: linear-gradient(120deg, rgb(240, 238, 238) 0%, rgb(240, 238, 238) 50%, rgb(135, 20, 158) 50%);
-    background-size: 220%;
-    transition: all .5s;
-    color: black;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin-bottom: 1em;
+  text-decoration: none;
+  background-color: #0075ff;
+  background-size: 220%;
+  transition: all 0.5s;
+  color: white;
 }
+
 .valid {
-    font-size: 1.4rem;
-    margin-bottom: 1em;
-    text-decoration: line-through;
-    color: rgb(192, 188, 188);
+  font-size: 1.4rem;
+  margin-bottom: 1em;
+  text-decoration: line-through;
+  color: rgb(192, 188, 188);
 }
 
 .invalid:hover {
-    background-position: 100%;
-    color:beige;
-    transform: translateX(1em);
+  background-position: 100%;
+  color: beige;
+  transform: translateX(1em);
 }
-#inlogButton:hover, .formButton:hover{
-    background-position: 100%;
-    color:beige;
+
+.addComment {
+  margin-bottom: 1em;
+  font-weight: bold;
 }
-#inlogButton, .formButton {
-    cursor: pointer;
-    display: inline-block;
-    padding: 0.5rem 2.5rem;
-    text-decoration: none;
-    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, rgb(135, 20, 158) 50%);
-    background-size: 220%;
-    transition: all .5s;
-    border: none;
+
+#comment {
+  max-width: 70%;
+}
+
+#inlogButton:hover,
+.formButton:hover {
+  background-position: 100%;
+  color: beige;
+}
+#inlogButton,
+.formButton {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5em 2.5em;
+  text-decoration: none;
+  background-color: #0075ff;
+  background-size: 220%;
+  transition: all 0.5s;
+  border: none;
+  color: white;
+}
+
+#inlogButton {
+  margin-top: 2em;
+}
+
+#submit-form {
+  display: none;
+  position: fixed;
+  font-size: 1.4rem;
+  top: 50%;
+  left: 50%;
+  padding: 3em;
+  background: #0075ff;
+  color: white;
+  border-radius: 6px;
+  transform: translate(-50%, -50%);
+}
+
+#submitJs {
+  display: none;
+}
+
+@supports (height: 100vh) {
+  body,
+  .section-inlog {
+    height: 100vh;
+  }
+}
+
+@supports (
+  background-image:
+    linear-gradient(
+      120deg,
+      rgb(240, 238, 238) 0%,
+      rgb(240, 238, 238) 50%,
+      #0075ff 50%
+    )
+) {
+  .invalid,
+  #inlogButton,
+  .formButton {
+    background-color: transparent;
+    background-image: linear-gradient(
+      120deg,
+      rgb(240, 238, 238) 0%,
+      rgb(240, 238, 238) 50%,
+      #0075ff 50%
+    );
     color: black;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  h1 {
+    font-size: 1rem;
+  }
+
+  .invalid {
+    font-size: 1rem;
+  }
+
+  .section-inlog {
+    padding: 0;
+  }
+
+  #submit-form {
+    font-size: 0.9rem;
+  }
+
+  section {
+    padding: 3em 0;
+  }
+
+  @supports (height: 100vh) {
+    section {
+      padding: 3em 0;
+      height: 100vh;
+    }
+  }
+
+  textarea {
+    width: 22em;
+    height: 7em;
+  }
 }

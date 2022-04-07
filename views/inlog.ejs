@@ -1,22 +1,21 @@
 <%- include ("./partials/head.ejs") %>
-
-    <header class="inlog-header">
+<main>
+  <section class="section-inlog">
+    <article>
+      <form action="/" method="POST">
         <h1>Welkom</h1>
         <h2>Vul je gegevens</h2>
-    </header>
+        <fieldset>
+          <label for="naam">Naam</label>
+          <input type="text" id="naam" name="name" required />
 
-    <main>
-        <form action="/" method="POST">
-                <fieldset>
-                <label for="naam">Naam</label>
-                    <input type="text" id="naam" name="name" required>
-                    
-                <label for="studentNumber">Student nummer</label>
-                    <input type="text" id="studentNumber" name="studentNumber" required>
+          <label for="studentNumber">Student nummer</label>
+          <input type="number" id="studentNumber" name="studentNumber" required />
 
-                <input type="submit" value="Next" id="inlogButton">
-            </fieldset>
-        </form>
-    </main>
-
+          <input type="submit" value="Next" id="inlogButton" />
+        </fieldset>
+      </form> 
+    </article>
+  </section>
+</main>
 <%- include ("./partials/footer.ejs") %>

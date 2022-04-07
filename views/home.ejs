@@ -1,22 +1,18 @@
 <%- include ("./partials/head.ejs") %>
-
-    <header>
-        <h1>Beoordeel
-        een vak</h1>
-    </header>
-
-    <main>
-        <section>
-        <ul>
-          <% for (const course of data) { %>
-            <% if(course.completed === false) { %>
-                <li><a class="invalid" href="<%= course.survey %>/<%= id %>"><%= course.name %></a></li>
-            <% } else { %>
-                <li class="valid"><%= course.name  %></li>
+<main>
+    <section>
+        <article>
+            <h1>Beoordeel een vak</h1>
+            <ul>
+            <% for (const course of data) { %>
+                <% if(course.completed === false) { %>
+                    <li><a class="invalid" href="<%= course.survey %>/t/<%= id %>"><%= course.name %></a></li>
+                <% } else { %>
+                    <li class="valid"><%= course.name  %></li>
+                <% } %>
             <% } %>
-          <% } %>
-        </ul> 
-        </section>    
-    </main>
-
+            </ul>
+        </article>
+    </section>    
+</main>
 <%- include ("./partials/footer.ejs") %>
