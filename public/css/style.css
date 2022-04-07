@@ -95,7 +95,7 @@ ul {
   padding: 1rem 2rem;
   margin-bottom: 1em;
   text-decoration: none;
-  background-color: #0075ff;
+  background-color: #001FFF;
   background-size: 220%;
   transition: all 0.5s;
   color: white;
@@ -134,7 +134,7 @@ ul {
   display: inline-block;
   padding: 0.5em 2.5em;
   text-decoration: none;
-  background-color: #0075ff;
+  background-color: #001FFF;
   background-size: 220%;
   transition: all 0.5s;
   border: none;
@@ -155,7 +155,7 @@ ul {
   top: 50%;
   left: 50%;
   padding: 3em;
-  background: #0075ff;
+  background: #001FFF;
   color: white;
   border-radius: 6px;
   transform: translate(-50%, -50%);
@@ -174,7 +174,7 @@ ul {
       120deg,
       rgb(240, 238, 238) 0%,
       rgb(240, 238, 238) 50%,
-      #0075ff 50%
+      #001FFF 50%
     )
 ) {
   .invalid,
@@ -185,7 +185,7 @@ ul {
       120deg,
       rgb(240, 238, 238) 0%,
       rgb(240, 238, 238) 50%,
-      #0075ff 50%
+      #001FFF 50%
     );
     color: black;
   }
