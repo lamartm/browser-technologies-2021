@@ -1,8 +1,20 @@
 # Browser Technologies
 
+![homepage](https://user-images.githubusercontent.com/55801193/162301071-04cf1533-8143-485e-b88e-c59af55caa51.png)
+
 [Link naar de site](https://browser-tech-mohamed-lamarti.herokuapp.com/)
 
-Ik heb in dit vak gefocust op de enquête over de minor.
+Ik heb in dit vak gefocussed op de enquête over de minor.
+
+## Installatie
+Clone de repo:
+``` git clone https://github.com/lamartm/browser-technologies-2021.git ```
+
+Install dependencies:
+``` npm install ```
+
+Start de site:
+``` npm start ```
 
 ## De Enquete
 
