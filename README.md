@@ -6,7 +6,7 @@
 
 Ik heb in dit vak gefocussed op de enquête over de minor.
 
-## Installatie
+## Installatie 💽
 Clone de repo:
 
 ``` git clone https://github.com/lamartm/browser-technologies-2021.git ```
@@ -19,7 +19,7 @@ Start de site:
 
 ``` npm start ```
 
-## De Enquete
+## De Enquete 📜
 
 Dit is wat de gebruiker wilt:
 
@@ -34,7 +34,7 @@ De gebruiker moet eerst zijn naam en studentennummer invullen. Vervolgens kunnen
 
 Ik wou bij het raten van de vakken een range slider toevoegen. De waarde hiervan veranderen en doorgeven aan de gebruiker is iets dat ik hoogstwaarschijnlijk met JS moet doen, vandaar bedacht ik gelijk dat ik een fallback moet hebben. Wanneer de gebruiker geen JS heeft krijg je radio buttons te zien. Als laatst zie je hier onderaan nog de pop up message die ik wil toevoegen wanneer de gebruiker de form submit.
 
-## Toegankelijkheid
+## Toegankelijkheid 🔍
 
 Ik ging mijn site in Chrome en Firefox testen om te kijken of het tab vriendelijk is als je zo wilt navigeren. Geluk ging dit vlekkenloos en is mijn site compleet tab vriendelijk. Zelfs de range slider was tab vriendelijk, wat ik als eerst niet had verwacht.
 
@@ -57,7 +57,7 @@ Het zelfde geld voor het rood dat ik had gebruikt wanneer je een error krijgt. I
 
 Verder is al het leesbare content op mijn site zwart op wit, wat zeker hoog scoort qua contrast leesbaarheid.
 
-## Progressive enhancement
+## Progressive enhancement 🎂
 Progressive enhancement is wanneer je een site/applicatie maakt in lagen. 
 
 De eerste laag is de functional layer. Dit is de laag waar je core functionaliteit werkt zodat de gebruik kan doen waarvoor de site/app is bedoeld. Hier gaat het dan alleen om HTML. Ook al is je CSS en JS uit, de site moet nog steeds doen waar het voor gemaakt is.
@@ -70,7 +70,7 @@ Als je op zo'n manieer je app/site maakt zorg je ervoor dat in welk context dan 
 
 Ik zal nu door elk van deze lagen heen gaan en laten zien hoe het er bij mij eruit ziet.
 
-### Functional layer
+### Functional layer 🎂
 Log in:
 ![inlog html](https://user-images.githubusercontent.com/55801193/162281978-b4d6e0ad-4090-46d1-acf1-91ddd423f46f.png)
 
@@ -83,7 +83,7 @@ Form:
 Je kan hier zien dat de core functionaliteit door elk pagina heen werkt zoals toebehoren. De gebruiker kan zijn gegevens doorgeven, een vak selecteren en die invullen.
 Als de gebruiker een form heeft geselecteerd worden ze redirect naar de vak selectie pagina en is de form die ze hebben ingevuld niet meer klikbaar. Dit komt doordat de code die dit regelt via de server gaat en niks met de client te maken heeft. Hierdoor kon ik ervoor zorgen dat er zelf zonder JS en CSS ervoor kan zorgen dat de pagina's doen wat ze horen te doen.
 
-### Usable layer
+### Usable layer 🎂
 Log in:
 ![login css](https://user-images.githubusercontent.com/55801193/162283182-27e92d70-4b23-44e1-ab87-bb4c6e051be3.png)
 
@@ -99,7 +99,7 @@ Form error:
 Alles hierboven is wat je ziet wanneer JS niet aanstaat. Ik heb hier geprobeerd om de vormgeving te verbeteren en wat interactie toe te voegen door hover animaties.
 De form die je hier ziet is wat je krijgt wanneer JS niet aanstaat. Ik check hier natuurlijk voor in mijn code, zodat de gebruiker de slider krijgt te zien als JS aan staat en de radio buttons wanneer dit niet het geval is. Zoals je kan zien krijgt de gebruiker een standaard error wanneer je niet alles van de form hebt ingevuld. Ook is er geen confirmation message wanneer de form helemaal is ingevuld. Dit zijn allemaal dingen die ik in de volgende layer zal implementeren.
 
-### Pleasurable layer
+### Pleasurable layer 🎂
 Log in:
 ![login css](https://user-images.githubusercontent.com/55801193/162283182-27e92d70-4b23-44e1-ab87-bb4c6e051be3.png)
 
@@ -121,7 +121,7 @@ Verder heb ik in het geval dat de gebruiker een veld niet heeft ingevuld ervoor 
 
 Wanneer de gebruiker de form verstuurd krijgen ze een confirmation message terug. Ik heb ervoor gezorgd dat er een delay is voordat ze geredirect worden naar de vak pagina, zodat de gebruiker de message kan lezen. 
 
-## Test verslag
+## Test verslag 🧪
 Om zeker te zijn dat mijn applicatie in elke context werkt qua browser of OS, zal ik het vier testen in vier verschillende browsers. Dit zijn de volgende browser waarin ik ging testen:
 
 - Chrome
@@ -151,7 +151,7 @@ Tijdens het testen voor Android besefte ik me hoe belangrijk testen is. De App w
 ### Safari mobile
 Op Safari had ik hetzelfde probleem als in android chrome. Het was hier wel wat moeilijker te debuggen aangezien ik niet veel tools had om mee te werken. Uiteindelijk kon ik door middel van browserstack een iphone emulaten en in de console checken wat er mis is. Zoals ik had verwacht werd de localStorage hier ook niet geupdate. Dit was dus makkelijk op te lossen sinds ik al met iets kwam tijdens het testen op chrome. Ik wou hier vooral kijken of als de gebruiker niet de alle informatie had ingevuld, dat dan de view automatisch wordt gescrolled naar de sectie die nog ingevuld moet worden. Gelukkig werkte dit goed en kreeg je ook een message wanneer de form wordt gestuurd.
 
-## Feature Detection
+## Feature Detection ❗
 
 Door middel van localStorage zorg ik ervoor dat de waardes die de gebruiker invult in de form worden opgeslagen. Hierdoor kan de gebruiker terugkomen naar een form en doorgaan waar ze waren gebleven. Ik moet natuurlijk wel eerst checken of localStorage gesupport wordt. Dit doe ik door het volgende toe te passen:
 ```
