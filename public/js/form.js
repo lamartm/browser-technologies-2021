@@ -40,7 +40,7 @@ const checkIfRadioFilled = (category, categoryName) => {
   let valid = false;
   for (let i of category) {
     if (i.checked === false) {
-      document.getElementById(categoryName).style.color = "red";
+      document.getElementById(categoryName).style.color = "#AD0000";
     } else {
       document.getElementById(categoryName).style.color = "black";
       valid = true;
@@ -56,7 +56,7 @@ const checkIfDateFilled = () => {
     document.formWithJs.start.value === "" ||
     document.formWithJs.end.value === ""
   ) {
-    document.getElementById("week-date").style.color = "red";
+    document.getElementById("week-date").style.color = "#AD0000";
   } else {
     document.getElementById("week-date").style.color = "black";
     valid = true;
