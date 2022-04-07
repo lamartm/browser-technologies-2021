@@ -1,4 +1,5 @@
 const form = document.querySelector("form");
+const range = document.querySelectorAll(".input-wrapper");
 const uri = document.URL;
 const lastPart = uri.split("t/")[1];
 
@@ -48,6 +49,14 @@ function answers() {
   });
 }
 if (localStorageCheck() === true) {
+  range.forEach((input) => {
+    input.addEventListener("change", function (element) {
+      localStorage.setItem(
+        `${lastPart}-${form.id}-${element.target.name}`,
+        element.target.value
+      );
+    });
+  });
   form.addEventListener("focusout", function (e) {
     console.log(e.target.value);
     if (e.target.type !== "submit") {

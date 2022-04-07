@@ -5,7 +5,7 @@
             <form action="/courses/<%= data.name %>/t/<%= id %>" method="POST" id="<%= data.name %>" name="formWithJs" class="courseForm">
                 <fieldset>
                     <legend id="teacher">Docenten</legend>
-                    <div class="input-wrapper">
+                    <div>
                         <% data.teachers.forEach(d => { %>
                         <input type="radio" id="<%= d %>" class="teacher" name="teacher" value="<%= d %>" required>
                         <label for="<%= d %>"><%= d %></label>
@@ -59,7 +59,7 @@
                     </div>
 
                     <p>Moeilijkheid</p>
-                    <div id="difficulty-wrapper">
+                    <div id="difficulty-wrapper" class="input-wrapper">
                         <div class="visibleWithoutJs">
                             <input type="radio" class="difficulty" name="difficulty" value="1" required>
                             <label for="difficulty">1</label>
@@ -94,7 +94,7 @@
                     </div>
 
                     <p>Kwaliteit</p>
-                    <div id="quality-wrapper">
+                    <div id="quality-wrapper" class="input-wrapper">
                         <div class="visibleWithoutJs">
                             <input type="radio" class="quality" name="quality" value="1" required>
                             <label for="quality">1</label>
