@@ -1,8 +1,8 @@
 <%- include ("./partials/head.ejs") %>
-<main>
+<main id="formMain">
     <section id="formCourse">
         <div>
-            <form action="/courses/<%= data.name %>/t/<%= id %>" method="POST" id="<%= data.name %>" name="formWithJs" class="courseForm">
+            <form action="/courses/<%= data.name %>/t/<%= id %>" method="POST" id="coursesForm" name="formWithJs" class="courseForm">
                 <fieldset>
                     <legend id="teacher">Docenten</legend>
                     <div>
@@ -26,105 +26,105 @@
                     <p>Algemeen beoordeling</p>
                     <div id="general-wrapper" class="input-wrapper">
                         <div class="visibleWithoutJs">
-                            <input type="radio" class="generalRate" name="generalRate" value="1" required>
-                            <label for="generalRate">1</label>
+                            <input type="radio" class="generalRate" id="generalRate1" name="generalRate" value="1" required>
+                            <label for="generalRate1">1</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="2" required>
-                            <label for="generalRate">2</label>
+                            <input type="radio" class="generalRate" id="generalRate2" name="generalRate" value="2" required>
+                            <label for="generalRate2">2</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="3" required>
-                            <label for="generalRate">3</label>
+                            <input type="radio" class="generalRate" id="generalRate3" name="generalRate" value="3" required>
+                            <label for="generalRate3">3</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="4" required>
-                            <label for="generalRate">4</label>
+                            <input type="radio" class="generalRate" id="generalRate4" name="generalRate" value="4" required>
+                            <label for="generalRate4">4</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="5" required>
-                            <label for="generalRate">5</label>
+                            <input type="radio" class="generalRate" id="generalRate5" name="generalRate" value="5" required>
+                            <label for="generalRate5">5</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="6" required>
-                            <label for="generalRate">6</label>
+                            <input type="radio" class="generalRate" id="generalRate6" name="generalRate" value="6" required>
+                            <label for="generalRate6">6</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="7" required>
-                            <label for="generalRate">7</label>
+                            <input type="radio" class="generalRate" id="generalRate7" name="generalRate" value="7" required>
+                            <label for="generalRate7">7</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="8" required>
-                            <label for="generalRate">8</label>
+                            <input type="radio" class="generalRate" id="generalRate8" name="generalRate" value="8" required>
+                            <label for="generalRate8">8</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="9" required>
-                            <label for="generalRate">9</label>
+                            <input type="radio" class="generalRate" id="generalRate9" name="generalRate" value="9" required>
+                            <label for="generalRate9">9</label>
 
-                            <input type="radio" class="generalRate" name="generalRate" value="10" required>
-                            <label for="generalRate">10</label>
+                            <input type="radio" class="generalRate" id="generalRate10" name="generalRate" value="10" required>
+                            <label for="generalRate10">10</label>
                         </div>
                     </div>
 
                     <p>Moeilijkheid</p>
                     <div id="difficulty-wrapper" class="input-wrapper">
                         <div class="visibleWithoutJs">
-                            <input type="radio" class="difficulty" name="difficulty" value="1" required>
-                            <label for="difficulty">1</label>
+                            <input type="radio" class="difficulty" id="difficulty1" name="difficulty" value="1" required>
+                            <label for="difficulty1">1</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="2" required>
-                            <label for="difficulty">2</label>
+                            <input type="radio" class="difficulty" id="difficulty2" name="difficulty" value="2" required>
+                            <label for="difficulty2">2</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="3" required>
-                            <label for="difficulty">3</label>
+                            <input type="radio" class="difficulty" id="difficulty3" name="difficulty" value="3" required>
+                            <label for="difficulty3">3</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="4" required>
-                            <label for="difficulty">4</label>
+                            <input type="radio" class="difficulty" id="difficulty4" name="difficulty" value="4" required>
+                            <label for="difficulty4">4</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="5" required>
-                            <label for="difficulty">5</label>
+                            <input type="radio" class="difficulty" id="difficulty5" name="difficulty" value="5" required>
+                            <label for="difficulty5">5</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="6" required>
-                            <label for="difficulty">6</label>
+                            <input type="radio" class="difficulty" id="difficulty6" name="difficulty" value="6" required>
+                            <label for="difficulty6">6</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="7" required>
-                            <label for="difficulty">7</label>
+                            <input type="radio" class="difficulty" id="difficulty7" name="difficulty" value="7" required>
+                            <label for="difficulty7">7</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="8" required>
-                            <label for="difficulty">8</label>
+                            <input type="radio" class="difficulty" id="difficulty8" name="difficulty" value="8" required>
+                            <label for="difficulty8">8</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="9" required>
-                            <label for="difficulty">9</label>
+                            <input type="radio" class="difficulty" id="difficulty9" name="difficulty" value="9" required>
+                            <label for="difficulty9">9</label>
 
-                            <input type="radio" class="difficulty" name="difficulty" value="10" required>
-                            <label for="difficulty">10</label>
+                            <input type="radio" class="difficulty" id="difficulty10" name="difficulty" value="10" required>
+                            <label for="difficulty10">10</label>
                         </div>
                     </div>
 
                     <p>Kwaliteit</p>
                     <div id="quality-wrapper" class="input-wrapper">
                         <div class="visibleWithoutJs">
-                            <input type="radio" class="quality" name="quality" value="1" required>
-                            <label for="quality">1</label>
+                            <input type="radio" class="quality" id="quality1" name="quality" value="1" required>
+                            <label for="quality1">1</label>
 
-                            <input type="radio" class="quality" name="quality" value="2" required>
-                            <label for="quality">2</label>
+                            <input type="radio" class="quality" id="quality2" name="quality" value="2" required>
+                            <label for="quality2">2</label>
 
-                            <input type="radio" class="quality" name="quality" value="3" required>
-                            <label for="quality">3</label>
+                            <input type="radio" class="quality" id="quality3" name="quality" value="3" required>
+                            <label for="quality3">3</label>
 
-                            <input type="radio" class="quality" name="quality" value="4" required>
-                            <label for="quality">4</label>
+                            <input type="radio" class="quality" id="quality4" name="quality" value="4" required>
+                            <label for="quality4">4</label>
 
-                            <input type="radio" class="quality" name="quality" value="5" required>
-                            <label for="quality">5</label>
+                            <input type="radio" class="quality" id="quality5" name="quality" value="5" required>
+                            <label for="quality5">5</label>
 
-                            <input type="radio" class="quality" name="quality" value="6" required>
-                            <label for="quality">6</label>
+                            <input type="radio" class="quality" id="quality6" name="quality" value="6" required>
+                            <label for="quality6">6</label>
 
-                            <input type="radio" class="quality" name="quality" value="7" required>
-                            <label for="quality">7</label>
+                            <input type="radio" class="quality" id="quality7" name="quality" value="7" required>
+                            <label for="quality7">7</label>
 
-                            <input type="radio" class="quality" name="quality" value="8" required>
-                            <label for="quality">8</label>
+                            <input type="radio" class="quality" id="quality8" name="quality" value="8" required>
+                            <label for="quality8">8</label>
 
-                            <input type="radio" class="quality" name="quality" value="9" required>
-                            <label for="quality">9</label>
+                            <input type="radio" class="quality" id="quality9" name="quality" value="9" required>
+                            <label for="quality9">9</label>
 
-                            <input type="radio" class="quality" name="quality" value="10" required>
-                            <label for="quality">10</label>
+                            <input type="radio" class="quality" id="quality10" name="quality" value="10" required>
+                            <label for="quality10">10</label>
                         </div>
                     </div>
                 </fieldset>
@@ -133,15 +133,11 @@
                     <label for="comment" class="addComment">Nog een opmerking?</label>
                     <textarea name="comment" id="comment"></textarea>
                 </fieldset>
-                <input type="button" value="Submit" id="submitJs" class="formButton">
-                <input type="submit" value="Submit" id="submitNoJs" class="formButton">
+                <!-- <input type="submit" value="Ga verder" id="submitButtonNoCss" class="formButton"> -->
+                <input type="submit" value="Submit" id="submitButton" class="formButton">
             </form>
         </div>
     </section>
-
-    <article id="submit-form">
-        <p>De enquete is verstuurd!</p>
-    </article>
 </main>
 
 <script src="/js/form.js"></script>

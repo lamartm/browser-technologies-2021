@@ -1,6 +1,8 @@
 const form = document.querySelector("form");
 const uri = document.URL;
-const lastPart = uri.split("t/")[1];
+const username = uri.split("t/")[1];
+const formString = uri.split("/courses/")[1];
+const selectedForm = formString.split("/")[0];
 
 const answer = document.querySelectorAll("form input");
 const textAnswer = document.querySelectorAll("textarea");
@@ -19,7 +21,7 @@ export function localStorageCheck() {
 function answers() {
   answer.forEach((i) => {
     const savedAnswer = localStorage.getItem(
-      `${lastPart}-${form.id}-${i.name}`
+      `${username}-${selectedForm}-${i.name}`
     );
 
     if (savedAnswer) {
@@ -41,7 +43,7 @@ function answers() {
 
   textAnswer.forEach((i) => {
     const savedAnswer = localStorage.getItem(
-      `${lastPart}-${form.id}-${i.name}`
+      `${username}-${selectedForm}-${i.name}`
     );
 
     i.value = savedAnswer;
@@ -51,7 +53,7 @@ if (localStorageCheck() === true) {
   form.addEventListener("change", function (e) {
     if (e.target.type !== "submit") {
       localStorage.setItem(
-        `${lastPart}-${form.id}-${e.target.name}`,
+        `${username}-${selectedForm}-${e.target.name}`,
         e.target.value
       );
     }

@@ -144,6 +144,9 @@ ul {
 #inlogButton {
   margin-top: 2em;
 }
+#submitButton {
+    display: initial;
+}
 
 #submit-form {
   display: none;
@@ -156,10 +159,6 @@ ul {
   color: white;
   border-radius: 6px;
   transform: translate(-50%, -50%);
-}
-
-#submitJs {
-  display: none;
 }
 
 @supports (height: 100vh) {

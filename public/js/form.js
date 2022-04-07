@@ -1,12 +1,25 @@
-document.getElementById("submitNoJs").style.display = "none";
-document.getElementById("submitJs").style.display = "initial";
-
-const formButton = document.getElementById("submitJs");
 const answer = document.querySelectorAll("form input");
+const formSection = document.querySelector("section");
 const newInput = document.createElement("input");
 const newLabel = document.createElement("label");
+const newArticle = document.createElement("article");
+const newParagraph = document.createElement("p");
+const submitButton = document.getElementById("submitButton");
+const addPopUpMessage = document
+  .getElementById("formMain")
+  .appendChild(newArticle.cloneNode(true));
 
-formButton.addEventListener("click", addPopUp);
+addPopUpMessage.setAttribute("id", "submit-form");
+
+if (
+  window.getComputedStyle(formSection).getPropertyValue("display") === "flex"
+) {
+  submitButton.setAttribute("type", "button");
+  submitButton.setAttribute("class", "formButton");
+  submitButton.setAttribute("value", "Submit");
+} else {
+  console.log("No CSS");
+}
 
 checkInput();
 
@@ -14,7 +27,11 @@ changeColor("teacher");
 changeDateColor("week-date");
 
 document.querySelectorAll(".visibleWithoutJs").forEach((d) => {
-  d.style.display = "none";
+  if (
+    window.getComputedStyle(formSection).getPropertyValue("display") === "flex"
+  ) {
+    d.style.display = "none";
+  }
 });
 
 const checkIfRadioFilled = (category, categoryName) => {
@@ -76,9 +93,14 @@ function checkInput() {
   newInput.setAttribute("type", "range");
 
   if (newInput.type === "range") {
-    addInput("general-wrapper", "generalRate", "generalLabel");
-    addInput("difficulty-wrapper", "difficulty", "difficultyLabel");
-    addInput("quality-wrapper", "quality", "qualityLabel");
+    if (
+      window.getComputedStyle(formSection).getPropertyValue("display") ===
+      "flex"
+    ) {
+      addRateInput("general-wrapper", "generalRate", "generalLabel");
+      addRateInput("difficulty-wrapper", "difficulty", "difficultyLabel");
+      addRateInput("quality-wrapper", "quality", "qualityLabel");
+    }
   } else {
     document.querySelectorAll(".visibleWithoutJs").forEach((d) => {
       d.style.display = "initial";
@@ -86,7 +108,7 @@ function checkInput() {
   }
 }
 
-function addInput(id, name, labelId) {
+function addRateInput(id, name, labelId) {
   const addInput = document
     .getElementById(id)
     .appendChild(newInput.cloneNode(true));
@@ -109,6 +131,17 @@ function addInput(id, name, labelId) {
   changeLabelValue(addInput, addLabel);
 }
 
+function addSubmitInput(id) {
+  const addInput = document
+    .getElementById(id)
+    .appendChild(newInput.cloneNode(true));
+
+  addInput.setAttribute("type", "button");
+  addInput.setAttribute("id", "submitJs");
+  addInput.setAttribute("class", "formButton");
+  addInput.setAttribute("value", "Submit");
+}
+
 function changeLabelValue(input, label) {
   input.addEventListener("change", (d) => {
     label.innerHTML = d.target.value;
@@ -117,7 +150,10 @@ function changeLabelValue(input, label) {
 
 function addPopUp() {
   setTimeout(() => {
+    addPopUpMessage.appendChild(newParagraph.cloneNode(true)).textContent =
+      "De enquete is verstuurd!";
     if (checkIfAllFilled() === true) {
+      submitButton.addEventListener("click", addPopUp);
       document.getElementById("submit-form").style.display = "initial";
       setTimeout(() => document.formWithJs.submit(), 1000);
     } else {
