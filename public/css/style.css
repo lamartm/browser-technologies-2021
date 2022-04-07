@@ -218,7 +218,6 @@ ul {
 
   @supports (height: 100vh) {
     section {
-      padding: 3em 0;
       height: 100vh;
     }
   }
