@@ -8,12 +8,15 @@ Ik heb in dit vak gefocussed op de enquête over de minor.
 
 ## Installatie
 Clone de repo:
+
 ``` git clone https://github.com/lamartm/browser-technologies-2021.git ```
 
 Install dependencies:
+
 ``` npm install ```
 
 Start de site:
+
 ``` npm start ```
 
 ## De Enquete
