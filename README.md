@@ -106,8 +106,102 @@ Verder heb ik in het geval dat de gebruiker een veld niet heeft ingevuld ervoor 
 
 Wanneer de gebruiker de form verstuurd krijgen ze een confirmation message terug. Ik heb ervoor gezorgd dat er een delay is voordat ze geredirect worden naar de vak pagina, zodat de gebruiker de message kan lezen. 
 
+## Test verslag
+Om zeker te zijn dat mijn applicatie in elke context werkt qua browser of OS, zal ik het vier testen in vier verschillende browsers. Dit zijn de volgende browser waarin ik ging testen:
 
+- Chrome
+- Firefox
+- Android Chrome
+- Safari
 
+### Chrome
+Ik heb mijn applicatie vanaf het begin gemaakt in chrome en kon het daarom continu testen om te kijken of alles werkt. Dit was geluk wel het geval. Het enigste waar ik nog mee zat is dat je met de chrome web dev tools de CSS kan uitdoen maar JS wel aan kan zetten. Dit is een erge edge case sinds je bijna nooit zou meemaken dat je wel JS hebt maar geen CSS, maar om ervoor te zorgen dat mijn applicatie in elke context werkt ging ik nadenken hoe ik de problemen hierin kon oplossen.
+
+Mijn probleem was dat ik met JS elementen aanmaak en toevoeg aan de DOM. Wanneer je geen JS hebt worden deze elementen niet gemaakt en krijg je de elementen te zien die je alleen tevoorschijn komen als je alleen CSS hebt en geen JS. Wat er nu dan gebeurt wanneer je JS aan hebt en CSS uit, de aangemaakte elementen via JS worden toegevoegd aan de DOM en de elementen die ik ontzichtbaar had met display: none worden nu ook getoond.
+
+Ik moest dus een manier vinden om te checken of de gebruiker CSS heeft. Dit deed ik door middel van de volgende check:
+```
+window.getComputedStyle(formSection).getPropertyValue("display") === "flex"
+```
+Ik check hier of de form display: flex heeft. Dit gebeurt alleen als er CSS is en dit toegevoegd wordt. Als dit het geval is, voeg dan de elementen toe aan de DOM, zo niet doe dan niks. Hierdoor krijg je zelf in de edge case dat je geen CSS hebt maar wel JS, de correcte elementen te zien.
+
+### Firefox
+De applicatie werkte zoals verwacht, alleen waren er wat problemen met de styling, waardoor de app er niet helemaal goed uitzag. Na wat te exprimenteren had ik ervoor gezorgd dat de app er ook in Firefox goed uitziet. Ik ging hier ook nog een media query toevoegen in mijn CSS sinds ik zag dat de applicatie er niet helemaal goed uitzag in kleinere schermformaten. Verder heeft Firefox een andere layout voor de datums, namelijk geen agenda icon naast de input, maar dit komt nog steeds overeen met hoe ik het me voor me zag.
+
+![home](https://user-images.githubusercontent.com/55801193/162287998-5acf114b-3d12-47b7-ab74-693d66a369f9.png)
+
+### Android Chrome
+Tijdens het testen voor Android besefte ik me hoe belangrijk testen is. De App werkte zoals verwacht totdat je kwam naar de form. Hier sloeg het de gekozen waardes niet op bij bepaalde input fields, in de localStorage. Het was moeilijk te debuggen, maar het bleek iets te maken te hebben met dat de focusout event niet altijd vuurt op mobile. Hierdoor ging ik inplaats van  ```addEventListener("focusout")``` change gebruiken: ```addEventListener("change")```. Hiervoor was het wel het geval dat de gebruiker eerst een andere element moet selecteren voordat de ingevoerde waarde in de localStorage wordt toegevoegd. Dit gelde in zowel Chrome en Firefox op desktop. Gelukkig wordt de localStorage nu altijd geupdate wanneer er een verandering komt in een van de inputs. Nu werkt de app wel helemaal op android chrome.
+
+### Safari mobile
+Op Safari had ik hetzelfde probleem als in android chrome. Het was hier wel wat moeilijker te debuggen aangezien ik niet veel tools had om mee te werken. Uiteindelijk kon ik door middel van browserstack een iphone emulaten en in de console checken wat er mis is. Zoals ik had verwacht werd de localStorage hier ook niet geupdate. Dit was dus makkelijk op te lossen sinds ik al met iets kwam tijdens het testen op chrome. Ik wou hier vooral kijken of als de gebruiker niet de alle informatie had ingevuld, dat dan de view automatisch wordt gescrolled naar de sectie die nog ingevuld moet worden. Gelukkig werkte dit goed en kreeg je ook een message wanneer de form wordt gestuurd.
+
+## Feature Detection
+
+Door middel van localStorage zorg ik ervoor dat de waardes die de gebruiker invult in de form worden opgeslagen. Hierdoor kan de gebruiker terugkomen naar een form en doorgaan waar ze waren gebleven. Ik moet natuurlijk wel eerst checken of localStorage gesupport wordt. Dit doe ik door het volgende toe te passen:
+```
+function localStorageCheck() {
+  const test = "test";
+  try {
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+```
+Ik maak een variabel aan genaamd test, ik probeer deze toe te voegen in de localStorage. In het geval dit werkt, betekent het dat localStorage gesupport wordt, en returned de functie true. Zo niet zal de functie false returnen.
+
+Wat de functie ook returned, dit gebruik ik dan in het volgende:
+```
+if (localStorageCheck() === true) {
+  form.addEventListener("change", function (e) {
+    if (e.target.type !== "submit") {
+      localStorage.setItem(
+        `${username}-${selectedForm}-${e.target.name}`,
+        e.target.value
+      );
+    }
+  });
+  window.addEventListener("load", answers);
+} else {
+  console.log("no sir");
+}
+```
+In het geval dat de functie true returned, betekent het dat localStorage werkt en er dan geluisterd wordt naar elke verandering in de form. Deze veranderingen worden dan toegevoegd aan localStorage. Als de functie false returned wordt dit dan niet uitgevoerd en gaat de applicatie verder zonder gebruik te maken van localStorage, sinds dit er niet is.
+
+Dit is niet per se feature detection, maar de gedachte hoe ik mijn code had opgezet was wel zo. Ik heb er nu voor gezorgd dat de input range elements alleen gerendered worden in het geval er JS is. Ik voeg ze dus in Javascript toe aan de DOM. Ook in JS zorg ik ervoor dat de radio input elements display: none; krijg. Dus in het geval er geen JS is, zullen deze elementen geen display: none; krijgen en worden de radio range inputs niet gerendered.
+
+Ongeacht het feit dat dit een edge case is, ging ik wel checken of er CSS is. Dit deed ik door middel van het volgende:
+```
+if (
+  window.getComputedStyle(formSection).getPropertyValue("display") === "flex"
+)
+```
+Ik check hier of de form display: flex heeft. Dit heb ik in de CSS toegevoegd, en in het geval dat dit true is, betekent het dat er wel CSS is. Wanneer dit het geval is voeg ik de input range elements toe aan de DOM, sinds er CSS is en de andere input radio elements display: none hebben.
+
+Ik ging verder door mijn CSS heen kijken om te zien of er properties zijn die niet in elke browser wordt gesupport. Ik vond er namelijk twee. Het gebruik van vh en linear-gradient(). Door middel van @support {} check ik of deze properties werken op de browser die er momenteel wordt gebruikt. Als dit het geval is wordt de css binnen de @support {} gerunned. Zo niet is de CSS die er vooraf is gedefineerd toepasbaar:
+```
+@supports (
+  background-image:
+    linear-gradient(
+      120deg,
+      rgb(240, 238, 238) 0%,
+      rgb(240, 238, 238) 50%,
+      #001FFF 50%
+    )
+) 
+
+@supports (height: 100vh) {
+  body,
+  .section-inlog {
+    height: 100vh;
+  }
+}
+```
+## Opdracht 1
+In opdracht 1 ging ik samen met mijn team kijken naar progressive enhancement. Dit is wat we vonden: https://max-hauser.github.io/browser-technologies-2021/Opdracht1/index.html
 
 ## Opdracht 2
 Ik ga hier kijken naar Kleur en Custom fonts. Hiervoor ga ik een site gebruiken die ik zelf gemaakt heb tijdens mijn stage: https://debuurtontdekkers.nl/
