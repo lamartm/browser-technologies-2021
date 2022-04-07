@@ -269,6 +269,8 @@ De tekst op de gele achtergrond is hier niet goed genoeg qua contrast:
 
 ## Sources
 https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/@supports
+
 https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
 
