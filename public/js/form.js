@@ -21,6 +21,8 @@ if (
   console.log("No CSS");
 }
 
+submitButton.addEventListener("click", addPopUp);
+
 checkInput();
 
 changeColor("teacher");
@@ -150,10 +152,9 @@ function changeLabelValue(input, label) {
 
 function addPopUp() {
   setTimeout(() => {
-    addPopUpMessage.appendChild(newParagraph.cloneNode(true)).textContent =
-      "De enquete is verstuurd!";
     if (checkIfAllFilled() === true) {
-      submitButton.addEventListener("click", addPopUp);
+      addPopUpMessage.appendChild(newParagraph.cloneNode(true)).textContent =
+        "De enquete is verstuurd!";
       document.getElementById("submit-form").style.display = "initial";
       setTimeout(() => document.formWithJs.submit(), 1000);
     } else {
