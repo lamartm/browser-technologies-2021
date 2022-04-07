@@ -49,6 +49,7 @@ function answers() {
 }
 if (localStorageCheck() === true) {
   form.addEventListener("focusout", function (e) {
+    console.log(e.target.value);
     if (e.target.type !== "submit") {
       localStorage.setItem(
         `${lastPart}-${form.id}-${e.target.name}`,
